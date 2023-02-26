@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class MenuComponent {
   //----------------------------------------------------------------------------------------
-  // ATTRIBUTS
+  // ATTRIBUTES
   //----------------------------------------------------------------------------------------
   navLinks = [
     { label: 'Appartements', link: '/home' },
@@ -17,6 +17,6 @@ export class MenuComponent {
     { label: 'Le Floréal', link: '/flats/3' },
     { label: 'Le Grand Chalet', link: '/flats/4' },
     { label: 'Le Petit Chalet', link: '/flats/5' },
-    { label: 'Contact', link: '/flats/contact' },
+    { label: 'Contact', link: '/contact' },
   ];
 }

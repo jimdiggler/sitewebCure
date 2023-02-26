@@ -12,6 +12,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./features/flat/flat.module').then((m) => m.FlatModule),
   },
+  {
+    path: 'contact',
+    loadChildren: () =>
+      import('./features/contact/contact.module').then((m) => m.ContactModule),
+  }
 ];
 
 @NgModule({
