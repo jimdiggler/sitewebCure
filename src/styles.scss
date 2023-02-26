@@ -5,3 +5,40 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+.mat-mdc-tab-group.mat-primary .mat-ink-bar,
+.mat-mdc-tab-nav-bar.mat-primary .mat-ink-bar {
+    background: #ffffff;
+} // change la couleur du ink dans les tabs
+
+/*
+ * IMPORT CUSTOM FONTS
+ */
+@font-face {
+  font-family: "FuturaHeavy";
+  src: url("assets/fonts/Futura-Heavy-font.ttf");
+}
+
+@font-face {
+    font-family: "JosefinBold";
+    src: url("assets/fonts/JosefinSans-Bold.ttf");
+}
+
+@font-face {
+    font-family: "JosefinLight";
+    src: url("assets/fonts/JosefinSans-Light.ttf");
+}
+
+.futuraHeavy {
+    font-family: "FuturaHeavy";
+}
+
+.futura {
+    font-family: "Futura";
+}
+
+.josefinLight {
+    font-family: "JosefinLight";
+}

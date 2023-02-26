@@ -14,7 +14,7 @@ export class FlatDetailComponent implements OnInit {
   //----------------------------------------------------------------------------------------
   // ATTRIBUTES
   //----------------------------------------------------------------------------------------
-  flat!: Flat;
+  flat: Flat | null | undefined;
 
   //----------------------------------------------------------------------------------------
   // CONSTRUCTOR
@@ -58,13 +58,15 @@ export class FlatDetailComponent implements OnInit {
 
   //Not in use for flat-booking component
   openDialog() {
-    this.dialog.open(FlatBookingComponent, {
-      height: '600px',
-      width: '600px',
-      data: {
-        id: this.flat.id,
-        name: this.flat.name,
-      },
-    });
+    if (this.flat) {
+      this.dialog.open(FlatBookingComponent, {
+        height: '600px',
+        width: '600px',
+        data: {
+          id: this.flat.id,
+          name: this.flat.name,
+        },
+      });
+    }
   }
 }
