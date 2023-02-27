@@ -1,37 +1,37 @@
-<!--Flat title-->
-<h2>{{ data.name }}</h2>
-<!--Form-->
-<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-  <h5 class="mt-3">Dates souhaitées</h5>
-  <div class="row mt-2 d-flex justify-content-around">
-    <mat-form-field appearance="outline">
-      <mat-label>Entrez vos dates de réservation</mat-label>
-      <mat-date-range-input [rangePicker]="picker" [min]="today">
-        <input
-          matStartDate
-          formControlName="startDate"
-          placeholder="Date début"
-        />
-        <input matEndDate formControlName="endDate" placeholder="Date fin" />
-      </mat-date-range-input>
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-date-range-picker #picker></mat-date-range-picker>
-      <mat-error
-        *ngIf="
-          contactForm.controls['startDate'].hasError('matStartDateInvalid')
-        "
-        >Invalid start date</mat-error
-      >
-      <mat-error
-        *ngIf="contactForm.controls['endDate'].hasError('matEndDateInvalid')"
-        >Invalid end date</mat-error
-      >
-    </mat-form-field>
-  </div>
-  <h5 class="mt-3">Locataires</h5>
-  <div class="row mx-md">
-    <div class="col">
-      <mat-form-field class="lastName" appearance="outline">
+<div class="p-2 sm:p-4">
+  <!--Flat title-->
+  <p class="futuraHeavy">{{ data.name }}</p>
+  <!--Form-->
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <p class="josefinLight">Dates souhaitées</p>
+    <div class="flex justify-center">
+      <mat-form-field>
+        <mat-label>Entrez vos dates de réservation</mat-label>
+        <mat-date-range-input [rangePicker]="picker" [min]="today">
+          <input
+            matStartDate
+            formControlName="startDate"
+            placeholder="Date début"
+          />
+          <input matEndDate formControlName="endDate" placeholder="Date fin" />
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+        <mat-error
+          *ngIf="
+            contactForm.controls['startDate'].hasError('matStartDateInvalid')
+          "
+          >Invalid start date</mat-error
+        >
+        <mat-error
+          *ngIf="contactForm.controls['endDate'].hasError('matEndDateInvalid')"
+          >Invalid end date</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <p class="josefinLight mt-3">Locataires</p>
+    <div class="flex flex-wrap justify-around">
+      <mat-form-field class="lastName">
         <mat-label>Nom</mat-label>
         <input
           matInput
@@ -44,9 +44,8 @@
           >Nom obligatoire</mat-error
         >
       </mat-form-field>
-    </div>
-    <div class="col">
-      <mat-form-field class="firstName" appearance="outline">
+
+      <mat-form-field class="firstName">
         <mat-label>Prénom</mat-label>
         <input
           matInput
@@ -60,49 +59,49 @@
         >
       </mat-form-field>
     </div>
-  </div>
-  <div class="row d-flex justify-content-around">
-    <div class="col-12 col-md-4">
-      <mat-form-field class="email" appearance="outline">
-        <mat-label>E-mail</mat-label>
-        <input
-          matInput
-          formControlName="email1"
-          placeholder="E-mail"
-          pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$"
-          required
-        />
-        <mat-error *ngIf="contactForm.controls['email1'].hasError('required')"
-          >Adresse e-mail obligatoire</mat-error
-        >
-        <mat-error
-          *ngIf="
-            !contactForm.controls['email1'].hasError('required') &&
-            (contactForm.controls['email1'].hasError('pattern') ||
-              contactForm.controls['email1'].invalid)
-          "
-        >
-          L'adresse e-mail n'est pas valide</mat-error
-        >
-      </mat-form-field>
+    <div class="flex flex-wrap justify-around">
+      <div>
+        <mat-form-field class="email">
+          <mat-label>E-mail</mat-label>
+          <input
+            matInput
+            formControlName="email1"
+            placeholder="E-mail"
+            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$"
+            required
+          />
+          <mat-error *ngIf="contactForm.controls['email1'].hasError('required')"
+            >Adresse e-mail obligatoire</mat-error
+          >
+          <mat-error
+            *ngIf="
+              !contactForm.controls['email1'].hasError('required') &&
+              (contactForm.controls['email1'].hasError('pattern') ||
+                contactForm.controls['email1'].invalid)
+            "
+          >
+            L'adresse e-mail n'est pas valide</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="telephone">
+          <mat-label>Téléphone</mat-label>
+          <input
+            matInput
+            formControlName="phoneNumber1"
+            placeholder="Téléphone"
+            required
+          />
+          <mat-error
+            *ngIf="contactForm.controls['phoneNumber1'].hasError('required')"
+            >Numéro de téléphone obligatoire
+          </mat-error>
+        </mat-form-field>
+      </div>
     </div>
-    <div class="col-12 col-md-4">
-      <mat-form-field class="telephone" appearance="outline">
-        <mat-label>Téléphone</mat-label>
-        <input
-          matInput
-          formControlName="phoneNumber1"
-          placeholder="Téléphone"
-          required
-        />
-        <mat-error
-          *ngIf="contactForm.controls['phoneNumber1'].hasError('required')"
-          >Numéro de téléphone obligatoire
-        </mat-error>
-      </mat-form-field>
-    </div>
-    <div class="col-12 col-md-4">
-      <mat-form-field class="dateOfBirth" appearance="outline">
+    <div class="flex justify-center">
+      <mat-form-field class="dateOfBirth">
         <mat-label>Date de naissance :</mat-label>
         <input
           matInput
@@ -116,17 +115,22 @@
         <mat-datepicker #picker2></mat-datepicker>
       </mat-form-field>
     </div>
-  </div>
-  <mat-form-field class="address" appearance="outline">
-    <mat-label>Adresse</mat-label>
-    <input matInput formControlName="address1" placeholder="Adresse" required />
-    <mat-error *ngIf="contactForm.controls['address1'].hasError('required')"
-      >Adresse obligatoire</mat-error
-    >
-  </mat-form-field>
-  <div class="row mx-md">
-    <div class="col-12 col-md-6">
-      <mat-form-field class="zipCode" appearance="outline">
+    <div class="flex flex-grow justify-center">
+      <mat-form-field class="address">
+        <mat-label>Adresse</mat-label>
+        <input
+          matInput
+          formControlName="address1"
+          placeholder="Adresse"
+          required
+        />
+        <mat-error *ngIf="contactForm.controls['address1'].hasError('required')"
+          >Adresse obligatoire</mat-error
+        >
+      </mat-form-field>
+    </div>
+    <div class="flex flex-wrap justify-around">
+      <mat-form-field class="zipCode">
         <mat-label>Code Postal</mat-label>
         <input
           matInput
@@ -138,9 +142,7 @@
           >Code postal obligatoire</mat-error
         >
       </mat-form-field>
-    </div>
-    <div class="col-12 col-md-6">
-      <mat-form-field class="location" appearance="outline">
+      <mat-form-field class="location">
         <mat-label>Ville</mat-label>
         <input
           matInput
@@ -154,25 +156,20 @@
         >
       </mat-form-field>
     </div>
-  </div>
-  <h6><i>(2eme Personne Facultative)</i></h6>
-  <div class="row mx-md">
-    <div class="col-12 col-md-6">
-      <mat-form-field class="lastName" appearance="outline">
+
+    <h6><i>(2eme Personne Facultative)</i></h6>
+    <div class="flex flex-wrap justify-around">
+      <mat-form-field class="lastName">
         <mat-label>Nom</mat-label>
         <input matInput formControlName="lastName2" placeholder="Nom" />
       </mat-form-field>
-    </div>
-    <div class="col-12 col-md-6">
-      <mat-form-field class="firstName" appearance="outline">
+      <mat-form-field class="firstName">
         <mat-label>Prénom</mat-label>
         <input matInput formControlName="firstName2" placeholder="Prénom" />
       </mat-form-field>
     </div>
-  </div>
-  <div class="row mx-md">
-    <div class="col-12 col-md-4">
-      <mat-form-field class="email" appearance="outline">
+    <div class="flex flex-wrap justify-around">
+      <mat-form-field class="email">
         <mat-label>E-mail</mat-label>
         <input
           matInput
@@ -189,9 +186,7 @@
           L'adresse e-mail n'est pas valide</mat-error
         >
       </mat-form-field>
-    </div>
-    <div class="col-12 col-md-4">
-      <mat-form-field class="telephone" appearance="outline">
+      <mat-form-field class="telephone">
         <mat-label>Téléphone</mat-label>
         <input
           matInput
@@ -200,8 +195,8 @@
         />
       </mat-form-field>
     </div>
-    <div class="col-12 col-md-4">
-      <mat-form-field class="dateOfBirth" appearance="outline">
+    <div class="flex justify-center">
+      <mat-form-field class="dateOfBirth">
         <mat-label>Date de naissance :</mat-label>
         <input
           matInput
@@ -215,25 +210,23 @@
         <mat-datepicker #picker3></mat-datepicker>
       </mat-form-field>
     </div>
-  </div>
-  <mat-form-field class="address" appearance="outline">
-    <mat-label>Adresse</mat-label>
-    <input matInput formControlName="address2" placeholder="Adresse" />
-  </mat-form-field>
-  <div class="row mx-md">
-    <div class="col-12 col-md-6">
-      <mat-form-field class="zipCode" appearance="outline">
+    <div class="flex justify-center">
+      <mat-form-field class="address">
+        <mat-label>Adresse</mat-label>
+        <input matInput formControlName="address2" placeholder="Adresse" />
+      </mat-form-field>
+    </div>
+    <div class="flex flex-wrap justify-around">
+      <mat-form-field class="zipCode">
         <mat-label>Code Postal</mat-label>
         <input matInput formControlName="zipCode2" placeholder="Code postal" />
       </mat-form-field>
-    </div>
-    <div class="col-12 col-md-6">
-      <mat-form-field class="location" appearance="outline">
+      <mat-form-field class="location">
         <mat-label>Ville</mat-label>
         <input matInput formControlName="location2" placeholder="Ville" />
       </mat-form-field>
     </div>
-  </div>
-  <button type="submit" class="btn btn-outline-info">Soumettre</button>
-  <button class="btn btn-outline ml-2" (click)="closeDialog()">Fermer</button>
-</form>
+    <button type="submit" class="btn btn-outline-info">Soumettre</button>
+    <button class="btn btn-outline ml-2" (click)="closeDialog()">Fermer</button>
+  </form>
+</div>
