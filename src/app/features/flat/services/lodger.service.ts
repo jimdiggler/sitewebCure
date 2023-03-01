@@ -9,10 +9,10 @@ export class LodgerService {
   //----------------------------------------------------------------------------------------
   // ATTRIBUTES
   //----------------------------------------------------------------------------------------
-  static readonly REST_SERVER_LOCAL = 'http://localhost:3000/lodgers/';
-  static readonly REST_PDF_LOCAL = 'http://localhost:3000/pdf/';
-  //static readonly REST_SERVER_LOCAL = "https://site-cure-server.onrender.com//lodgers/"
-  //static readonly REST_PDF_LOCAL = "https://site-cure-server.onrender.com/pdf/"
+  //static readonly REST_SERVER_LOCAL = 'http://localhost:3000/lodgers/';
+  //static readonly REST_PDF_LOCAL = 'http://localhost:3000/pdf/';
+  static readonly REST_SERVER_LOCAL = "https://site-cure-server.onrender.com//lodgers/"
+  static readonly REST_PDF_LOCAL = "https://site-cure-server.onrender.com/pdf/"
 
   //----------------------------------------------------------------------------------------
   // CONSTRUCTOR
